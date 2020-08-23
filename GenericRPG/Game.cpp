@@ -44,11 +44,10 @@ bool Game::Initialize() {
 bool Game::Run() {
 	//Handle Events
 	SDL_Event e;
-	while (!SDL_PollEvent(&e)) {
+	while (SDL_PollEvent(&e) != 0) {
 		switch (e.type) {
 		case SDL_QUIT:
 			return false;
-			break;
 		default:
 			break;
 		}
