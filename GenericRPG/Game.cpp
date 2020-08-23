@@ -1,6 +1,9 @@
 #include <iostream>
+#include <SDL.h>
+
 #include "Game.h"
 #include "GameProperties.h"
+
 
 Game::Game() {
 	window = NULL;
@@ -8,8 +11,8 @@ Game::Game() {
 }
 
 bool Game::Initialize() {
-	if (!SDL_Init(SDL_INIT_VIDEO | SDL_INIT_EVENTS)) {
-		std::cout << "Failed to initialize SDL." << std::endl;
+	if (SDL_Init(SDL_INIT_VIDEO|SDL_INIT_EVENTS)) {
+		std::cout << "Failed to initialize SDL" << std::endl;
 		return false;
 	}
 
