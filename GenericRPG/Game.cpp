@@ -38,6 +38,27 @@ bool Game::Initialize() {
 		return false;
 	}
 
+	//Load all game textures
+	textureManager = new TextureManager(renderer);
+	if (!textureManager->Initialize()) {
+		std::cout << "Failed to initialize texture manager" << std::endl;
+		SDL_DestroyRenderer(renderer);
+		SDL_DestroyWindow(window);
+		return false;
+	}
+	
+
+
+	//TEMP: Add a game object for testing
+	SDL_Texture* tmpTxtr = textureManager->GetTexturePtr("stickman");
+	GameObject* tmpObj = new GameObject(tmpTxtr);
+	tmpObj->SetLocation(100, 100);
+
+	gameObjects.push_front(tmpObj);
+
+
+
+
 	return true;
 }
 
@@ -57,6 +78,11 @@ bool Game::Run() {
 	SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
 	SDL_RenderClear(renderer);
 
+	std::list <GameObject *> ::iterator gameObjectPtr;
+	for (gameObjectPtr = gameObjects.begin(); gameObjectPtr != gameObjects.end(); ++gameObjectPtr) {
+		(*gameObjectPtr)->Render(renderer);
+	}
+
 	SDL_RenderPresent(renderer);
 
 	//End game loop iteration
@@ -64,6 +90,9 @@ bool Game::Run() {
 }
 
 bool Game::Shutdown() {
+	textureManager->Destroy();
+	delete textureManager;
+
 	SDL_DestroyRenderer(renderer);
 	SDL_DestroyWindow(window);
 
