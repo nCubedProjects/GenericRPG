@@ -1,4 +1,5 @@
 #include <iostream>
+#include <stdexcept>
 #include <SDL.h>
 
 #include "Game.h"
@@ -35,6 +36,8 @@ bool Game::Initialize() {
 	if (!renderer) {
 		std::cout << "Could create renderer: " << SDL_GetError() << std::endl;
 		SDL_DestroyWindow(window);
+
+		SDL_Quit();
 		return false;
 	}
 
@@ -44,19 +47,17 @@ bool Game::Initialize() {
 		std::cout << "Failed to initialize texture manager" << std::endl;
 		SDL_DestroyRenderer(renderer);
 		SDL_DestroyWindow(window);
+
+		SDL_Quit();
 		return false;
 	}
 	
 
-
-	//TEMP: Add a game object for testing
-	SDL_Texture* tmpTxtr = textureManager->GetTexturePtr("stickman");
-	GameObject* tmpObj = new GameObject(tmpTxtr);
-	tmpObj->SetLocation(100, 100);
-
-	gameObjects.push_front(tmpObj);
-
-
+	//Build the game world
+	if (!BuildGameWorld()) {
+		Shutdown();
+		return false;
+	}
 
 
 	return true;
@@ -97,6 +98,27 @@ bool Game::Shutdown() {
 	SDL_DestroyWindow(window);
 
 	SDL_Quit();
+
+	return true;
+}
+
+bool Game::BuildGameWorld() {
+	//TEMP: Add a game object for testing
+	SDL_Texture* tmpTxtr;
+	GameObject* tmpObj;
+	
+	try {
+		tmpTxtr = textureManager->GetTexturePtr("stickman");
+	}
+	catch (std::out_of_range) {
+		return false;
+	}
+	
+	
+	tmpObj = new GameObject(tmpTxtr);
+	tmpObj->SetLocation(100, 100);
+
+	gameObjects.push_front(tmpObj);
 
 	return true;
 }

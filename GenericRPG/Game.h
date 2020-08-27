@@ -19,5 +19,7 @@ class Game{
 
 		TextureManager* textureManager;
 		std::list<GameObject*> gameObjects;
+
+		bool BuildGameWorld();
 };
 
