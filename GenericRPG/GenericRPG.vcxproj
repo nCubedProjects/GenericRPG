@@ -154,7 +154,7 @@
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GameProperties.h" />
-    <ClInclude Include="KeyEventHandler.h" />
+    <ClInclude Include="EventHandlers.h" />
     <ClInclude Include="TextureManager.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

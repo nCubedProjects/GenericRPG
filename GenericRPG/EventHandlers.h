@@ -6,3 +6,8 @@ class KeyEventHandler {
 		virtual void HandleEvent(SDL_KeyboardEvent) = 0;
 };
 
+
+class MouseButtonEventHandler {
+public:
+	virtual void HandleEvent(SDL_MouseButtonEvent) = 0;
+};
