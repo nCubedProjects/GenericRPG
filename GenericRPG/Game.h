@@ -4,7 +4,9 @@
 #include <SDL.h>
 
 #include "TextureManager.h"
+#include "EventManager.h"
 #include "GameObject.h"
+#include "ControllableGameObject.h"
 
 class Game{
 	public:
@@ -18,6 +20,7 @@ class Game{
 		SDL_Renderer* renderer;
 
 		TextureManager* textureManager;
+		EventManager* eventManager;
 		std::list<GameObject*> gameObjects;
 
 		bool BuildGameWorld();

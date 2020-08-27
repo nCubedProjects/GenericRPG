@@ -51,6 +51,9 @@ bool Game::Initialize() {
 		SDL_Quit();
 		return false;
 	}
+
+	//Initialize the event manager
+	eventManager = new EventManager();
 	
 
 	//Build the game world
@@ -64,15 +67,8 @@ bool Game::Initialize() {
 }
 
 bool Game::Run() {
-	//Handle Events
-	SDL_Event e;
-	while (SDL_PollEvent(&e) != 0) {
-		switch (e.type) {
-		case SDL_QUIT:
-			return false;
-		default:
-			break;
-		}
+	if (!eventManager->HandleEvents()) {
+		return false;
 	}
 
 	//Handle Rendering
@@ -91,6 +87,8 @@ bool Game::Run() {
 }
 
 bool Game::Shutdown() {
+	delete eventManager;
+
 	textureManager->Destroy();
 	delete textureManager;
 
@@ -105,7 +103,7 @@ bool Game::Shutdown() {
 bool Game::BuildGameWorld() {
 	//TEMP: Add a game object for testing
 	SDL_Texture* tmpTxtr;
-	GameObject* tmpObj;
+	ControllableGameObject* tmpObj;
 	
 	try {
 		tmpTxtr = textureManager->GetTexturePtr("stickman");
@@ -115,10 +113,11 @@ bool Game::BuildGameWorld() {
 	}
 	
 	
-	tmpObj = new GameObject(tmpTxtr);
-	tmpObj->SetLocation(100, 100);
+	tmpObj = new ControllableGameObject(tmpTxtr);
+	((GameObject*)tmpObj)->SetLocation(100, 100);
 
-	gameObjects.push_front(tmpObj);
+	gameObjects.push_front((GameObject*)tmpObj);
+	eventManager->RegisterKeyEventHandler((KeyEventHandler *)tmpObj);
 
 	return true;
 }
