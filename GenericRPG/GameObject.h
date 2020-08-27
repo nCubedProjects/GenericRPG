@@ -10,7 +10,7 @@ class GameObject {
 		virtual void SetLocation(int, int);
 		virtual void SetTexture(SDL_Texture*);
 	
-	private:
+	protected:
 		SDL_Texture *	objTexture;
 		SDL_Rect		objLocation;
 };
