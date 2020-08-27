@@ -33,6 +33,22 @@ void ControllableGameObject::HandleEvent(SDL_KeyboardEvent e) {
 	}
 }
 
+void ControllableGameObject::HandleEvent(SDL_MouseButtonEvent e) {
+	switch (e.type) {
+	case SDL_MOUSEBUTTONDOWN:
+		switch (e.button) {
+		case SDL_BUTTON_LEFT:
+			ButtonPressed(e.x, e.y);
+			break;
+		default:
+			break;
+		}
+		break;
+	default:
+		break;
+	}
+}
+
 
 void ControllableGameObject::Render(SDL_Renderer* renderer) {
 	if (isMoving) {
@@ -48,4 +64,8 @@ void ControllableGameObject::AKeyPressed() {
 
 void ControllableGameObject::AKeyReleased() {
 	isMoving = false;
+}
+
+void ControllableGameObject::ButtonPressed(int x, int y) {
+	SetLocation(x, y);
 }

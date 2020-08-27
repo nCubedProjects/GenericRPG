@@ -118,6 +118,7 @@ bool Game::BuildGameWorld() {
 
 	gameObjects.push_front((GameObject*)tmpObj);
 	eventManager->RegisterKeyEventHandler((KeyEventHandler *)tmpObj);
+	eventManager->RegisterMouseButtonEventHandler((MouseButtonEventHandler*)tmpObj);
 
 	return true;
 }
