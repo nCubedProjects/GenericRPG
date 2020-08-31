@@ -21,11 +21,19 @@ bool TextureManager::Initialize() {
 		return false;
 	}
 
+	if (!AddTexture("dummytileset.bmp", "dummytileset")) {
+		return false;
+	}
+
 	return true;
 }
 
 bool TextureManager::Destroy() {
 	if (!DeleteTexture("stickman")) {
+		return false;
+	}
+
+	if (!DeleteTexture("dummytileset")) {
 		return false;
 	}
 
