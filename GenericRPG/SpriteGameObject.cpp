@@ -1,6 +1,7 @@
 #include "SpriteGameObject.h"
 
-SpriteGameObject::SpriteGameObject() : TileSetGameObject() {
+SpriteGameObject::SpriteGameObject() : 
+	GameObject(), TileSetGameObject() {
 	current_frame = 0;
 	frame_rate = 0;
 	frames_rendered = 0;
@@ -10,7 +11,7 @@ SpriteGameObject::SpriteGameObject(SDL_Texture * texture,
 									int num_across,
 									int num_down,
 									int sprite_frame_rate) 
-	: TileSetGameObject(texture, num_across, num_down) {
+	: GameObject(texture), TileSetGameObject(texture, num_across, num_down) {
 	current_frame = 0;
 	frame_rate = sprite_frame_rate;
 	frames_rendered = 0;

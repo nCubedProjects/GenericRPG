@@ -1,7 +1,7 @@
 #pragma once
 #include "GameObject.h"
 class ViewAwareGameObject :
-	public GameObject {
+	public virtual GameObject {
 
 public:
 	ViewAwareGameObject();

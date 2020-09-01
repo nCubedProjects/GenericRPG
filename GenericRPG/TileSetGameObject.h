@@ -1,7 +1,7 @@
 #pragma once
 #include "GameObject.h"
 class TileSetGameObject :
-	public GameObject {
+	public virtual GameObject {
 public:
 	TileSetGameObject();
 	TileSetGameObject(SDL_Texture* texture, int, int);

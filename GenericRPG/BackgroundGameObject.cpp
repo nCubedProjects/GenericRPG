@@ -3,11 +3,11 @@
 #include <algorithm>
 
 BackgroundGameObject::BackgroundGameObject() 
-	: ViewAwareGameObject() {
+	: GameObject(), ViewAwareGameObject() {
 }
 
 BackgroundGameObject::BackgroundGameObject(SDL_Texture* texture, int view_width, int view_height)
-	: ViewAwareGameObject(texture, view_width, view_height) {
+	: GameObject(texture), ViewAwareGameObject(texture, view_width, view_height) {
 	int w, h; //temp variables to hold texture width and height
 
 	//don't set view dimensions to something smaller than the background
