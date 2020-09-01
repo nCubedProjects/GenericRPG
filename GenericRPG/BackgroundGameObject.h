@@ -1,8 +1,8 @@
 #pragma once
-#include "GameObject.h"
+#include "ViewAwareGameObject.h"
 
 class BackgroundGameObject :
-	public GameObject {
+	public ViewAwareGameObject {
 
 	public:
 		BackgroundGameObject();
@@ -12,8 +12,5 @@ class BackgroundGameObject :
 		void UpdateViewDimensions(int, int);
 
 		void Render(SDL_Renderer *);
-
-	protected:
-		SDL_Rect view;
 };
 

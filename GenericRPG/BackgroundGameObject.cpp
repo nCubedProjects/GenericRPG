@@ -3,12 +3,11 @@
 #include <algorithm>
 
 BackgroundGameObject::BackgroundGameObject() 
-	: GameObject() {
-	view = { 0,0,0,0 };
+	: ViewAwareGameObject() {
 }
 
 BackgroundGameObject::BackgroundGameObject(SDL_Texture* texture, int view_width, int view_height)
-	: GameObject(texture) {
+	: ViewAwareGameObject(texture, view_width, view_height) {
 	int w, h; //temp variables to hold texture width and height
 
 	//don't set view dimensions to something smaller than the background
@@ -17,8 +16,6 @@ BackgroundGameObject::BackgroundGameObject(SDL_Texture* texture, int view_width,
 	if (view_width > w || view_height > h) {
 		throw;
 	}
-
-	view = { 0,0,view_width,view_height};
 }
 
 void BackgroundGameObject::UpdateViewOrigin(int x, int y) {
@@ -26,14 +23,12 @@ void BackgroundGameObject::UpdateViewOrigin(int x, int y) {
 	
 	SDL_QueryTexture(objTexture, NULL, NULL, &w, &h);
 
-
 	//Don't set origin past the point that would stretch the background.
 		//So if x and y allow the view's width and height to 
 		// cover a section of the texture, use them.
 		//otherwise set to the largest value that allows the view's width and 
 		// height to reach the appropriate edge of the texture.
-	view.x = std::min(x,w-view.w);
-	view.y = std::min(y,h-view.h);
+	ViewAwareGameObject::UpdateViewOrigin(std::min(x,w-view.w), std::min(y,h-view.h));
 }
 
 void BackgroundGameObject::UpdateViewDimensions(int view_width ,int view_height) {
@@ -45,8 +40,7 @@ void BackgroundGameObject::UpdateViewDimensions(int view_width ,int view_height)
 		throw;
 	}
 	
-	view.w = view_width;
-	view.h = view_height;
+	ViewAwareGameObject::UpdateViewDimensions(view_width, view_height);
 }
 
 void BackgroundGameObject::Render(SDL_Renderer* renderer) {
