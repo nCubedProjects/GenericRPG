@@ -103,8 +103,12 @@ bool Game::Shutdown() {
 bool Game::BuildGameWorld() {
 	//TEMP: Add a game object for testing
 	SDL_Texture* tmpTxtr;
-	ControllableGameObject* tmpObj;
 	
+	
+	//Code to add a "controllable" gme object
+		//this object implements a keyeventhander and mousebutton eventhandler
+	ControllableGameObject* tmpObj; 
+
 	try {
 		tmpTxtr = textureManager->GetTexturePtr("stickman");
 	}
@@ -112,13 +116,27 @@ bool Game::BuildGameWorld() {
 		return false;
 	}
 	
-	
 	tmpObj = new ControllableGameObject(tmpTxtr);
 	((GameObject*)tmpObj)->SetLocation(100, 100);
 
 	gameObjects.push_front((GameObject*)tmpObj);
 	eventManager->RegisterKeyEventHandler((KeyEventHandler *)tmpObj);
 	eventManager->RegisterMouseButtonEventHandler((MouseButtonEventHandler*)tmpObj);
+
+
+	//Code to add a "Sprite" object
+		// or a game object that renders frames of its texture
+	SpriteGameObject* tmpSpriteObj;
+
+	try {
+		tmpTxtr = textureManager->GetTexturePtr("dummytileset");
+	}
+	catch (std::out_of_range) {
+		return false;
+	}
+
+	tmpSpriteObj = new SpriteGameObject(tmpTxtr, 2, 2);
+	gameObjects.push_front((GameObject*)tmpSpriteObj);
 
 	return true;
 }

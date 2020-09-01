@@ -7,6 +7,7 @@
 #include "EventManager.h"
 #include "GameObject.h"
 #include "ControllableGameObject.h"
+#include "SpriteGameObject.h"
 
 class Game{
 	public:
