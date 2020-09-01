@@ -10,6 +10,7 @@
 #include "GameObject.h"
 #include "ControllableGameObject.h"
 #include "TileSetGameObject.h"
+#include "SpriteGameObject.h"
 
 class Game{
 	public:

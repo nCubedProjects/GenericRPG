@@ -134,7 +134,7 @@ bool Game::BuildGameWorld() {
 
 	//Code to add a "Sprite" object
 		// or a game object that renders frames of its texture
-	TileSetGameObject* tmpSpriteObj;
+	SpriteGameObject* tmpSpriteObj;
 
 	try {
 		tmpTxtr = textureManager->GetTexturePtr("dummytileset");
@@ -143,7 +143,7 @@ bool Game::BuildGameWorld() {
 		return false;
 	}
 
-	tmpSpriteObj = new TileSetGameObject(tmpTxtr, 2, 2);
+	tmpSpriteObj = new SpriteGameObject(tmpTxtr, 2, 2, 10);
 	gameObjects.push_front((GameObject*)tmpSpriteObj);
 
 	return true;
