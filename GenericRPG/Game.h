@@ -12,6 +12,7 @@
 #include "TileSetGameObject.h"
 #include "SpriteGameObject.h"
 #include "BackgroundGameObject.h"
+#include "TiledBackgroundGameObject.h"
 
 class Game{
 	public:
