@@ -3,7 +3,6 @@
 TileSetGameObject::TileSetGameObject() : GameObject() {
 	frames = NULL;
 	total_frames = 0;
-	current_frame = 0;
 }
 
 TileSetGameObject::TileSetGameObject(SDL_Texture * texture, 
@@ -31,11 +30,8 @@ TileSetGameObject::TileSetGameObject(SDL_Texture * texture,
 			frames[frame_index].h = h;
 		}
 	}
-	
-	current_frame = 0;
 }
 
 void TileSetGameObject::Render(SDL_Renderer* renderer) {
-	SDL_RenderCopy(renderer, objTexture, &frames[current_frame], &objLocation);
-	current_frame = (current_frame + 1) % total_frames;
+	SDL_RenderCopy(renderer, objTexture, &frames[0], &objLocation);
 }

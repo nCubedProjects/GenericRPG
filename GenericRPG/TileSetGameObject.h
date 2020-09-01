@@ -10,6 +10,5 @@ public:
 private:
 	SDL_Rect* frames;
 	int total_frames;
-	int current_frame;
 };
 
