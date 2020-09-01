@@ -7,7 +7,7 @@ public:
 	TileSetGameObject(SDL_Texture* texture, int, int);
 
 	virtual void Render(SDL_Renderer*);
-private:
+protected:
 	SDL_Rect* frames;
 	int total_frames;
 };

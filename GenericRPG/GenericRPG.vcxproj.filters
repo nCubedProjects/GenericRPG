@@ -54,6 +54,9 @@
     <ClCompile Include="TextureManager.cpp">
       <Filter>Source Files\GameSystems</Filter>
     </ClCompile>
+    <ClCompile Include="SpriteGameObject.cpp">
+      <Filter>Source Files\BaseObjects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -79,6 +82,9 @@
     </ClInclude>
     <ClInclude Include="TextureManager.h">
       <Filter>Header Files\GameSystems</Filter>
+    </ClInclude>
+    <ClInclude Include="SpriteGameObject.h">
+      <Filter>Header Files\BaseObjects</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
