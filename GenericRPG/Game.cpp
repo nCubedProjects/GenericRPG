@@ -3,7 +3,7 @@
 #include <SDL.h>
 
 #include "Game.h"
-#include "GameProperties.h"
+
 
 
 Game::Game() {
@@ -67,6 +67,10 @@ bool Game::Initialize() {
 }
 
 bool Game::Run() {
+	//capture current ticks for starting frame rate cap
+	int start_ticks = SDL_GetTicks();
+	
+	//Handle Events
 	if (!eventManager->HandleEvents()) {
 		return false;
 	}
@@ -79,9 +83,13 @@ bool Game::Run() {
 	for (gameObjectPtr = gameObjects.begin(); gameObjectPtr != gameObjects.end(); ++gameObjectPtr) {
 		(*gameObjectPtr)->Render(renderer);
 	}
-
 	SDL_RenderPresent(renderer);
 
+	//Delay if needed for capping frame rate
+	int frameticks = SDL_GetTicks() - start_ticks;
+	if (frameticks < screen_ticks_per_frame) {
+		SDL_Delay(screen_ticks_per_frame - frameticks);
+	}
 	//End game loop iteration
 	return true;
 }

@@ -3,6 +3,8 @@
 #include <list>
 #include <SDL.h>
 
+#include "GameProperties.h"
+
 #include "TextureManager.h"
 #include "EventManager.h"
 #include "GameObject.h"
@@ -25,5 +27,7 @@ class Game{
 		std::list<GameObject*> gameObjects;
 
 		bool BuildGameWorld();
+
+		const int screen_ticks_per_frame = SCREEN_TICKS_PER_FRAME;
 };
 
