@@ -57,6 +57,9 @@
     <ClCompile Include="SpriteGameObject.cpp">
       <Filter>Source Files\BaseObjects</Filter>
     </ClCompile>
+    <ClCompile Include="BackgroundGameObject.cpp">
+      <Filter>Source Files\BaseObjects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -84,6 +87,9 @@
       <Filter>Header Files\GameSystems</Filter>
     </ClInclude>
     <ClInclude Include="SpriteGameObject.h">
+      <Filter>Header Files\BaseObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="BackgroundGameObject.h">
       <Filter>Header Files\BaseObjects</Filter>
     </ClInclude>
   </ItemGroup>

@@ -147,6 +147,7 @@
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="SpriteGameObject.cpp" />
+    <ClCompile Include="BackgroundGameObject.cpp" />
     <ClCompile Include="TileSetGameObject.cpp" />
     <ClCompile Include="TextureManager.cpp" />
   </ItemGroup>
@@ -158,6 +159,7 @@
     <ClInclude Include="GameProperties.h" />
     <ClInclude Include="EventHandlers.h" />
     <ClInclude Include="SpriteGameObject.h" />
+    <ClInclude Include="BackgroundGameObject.h" />
     <ClInclude Include="TileSetGameObject.h" />
     <ClInclude Include="TextureManager.h" />
   </ItemGroup>
