@@ -13,11 +13,23 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Header Files\EventSystem">
-      <UniqueIdentifier>{51f1dabd-0873-4866-952e-56ebeacdd4dd}</UniqueIdentifier>
+    <Filter Include="Source Files\BaseObjects">
+      <UniqueIdentifier>{bd23048a-1a74-43ef-9107-54ec75d16914}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\EventSystem">
+    <Filter Include="Source Files\GameSystems">
+      <UniqueIdentifier>{8b59f45b-6877-477a-a6e0-af43858a783e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GameSystems\EventSystem">
       <UniqueIdentifier>{a765bcee-db85-4c1d-a7f3-85405a2dd496}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\BaseObjects">
+      <UniqueIdentifier>{9f5c2592-e5f2-4f6c-ae72-b811be4efeca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\GameSystems">
+      <UniqueIdentifier>{9d5876ea-a8ac-47d8-b2a6-33a0b7775d48}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\GameSystems\EventSystem">
+      <UniqueIdentifier>{51f1dabd-0873-4866-952e-56ebeacdd4dd}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -27,20 +39,20 @@
     <ClCompile Include="Game.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GameObject.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="TextureManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="ControllableGameObject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="EventManager.cpp">
-      <Filter>Source Files\EventSystem</Filter>
+      <Filter>Source Files\GameSystems\EventSystem</Filter>
     </ClCompile>
-    <ClCompile Include="SpriteGameObject.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="TileSetGameObject.cpp">
+      <Filter>Source Files\BaseObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>Source Files\BaseObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureManager.cpp">
+      <Filter>Source Files\GameSystems</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -50,23 +62,23 @@
     <ClInclude Include="GameProperties.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="GameObject.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="TextureManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="ControllableGameObject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="EventManager.h">
-      <Filter>Header Files\EventSystem</Filter>
+      <Filter>Header Files\GameSystems\EventSystem</Filter>
     </ClInclude>
     <ClInclude Include="EventHandlers.h">
-      <Filter>Header Files\EventSystem</Filter>
+      <Filter>Header Files\GameSystems\EventSystem</Filter>
     </ClInclude>
-    <ClInclude Include="SpriteGameObject.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="TileSetGameObject.h">
+      <Filter>Header Files\BaseObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject.h">
+      <Filter>Header Files\BaseObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureManager.h">
+      <Filter>Header Files\GameSystems</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
