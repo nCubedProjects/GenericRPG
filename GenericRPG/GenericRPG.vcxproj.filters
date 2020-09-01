@@ -63,6 +63,9 @@
     <ClCompile Include="ViewAwareGameObject.cpp">
       <Filter>Source Files\BaseObjects</Filter>
     </ClCompile>
+    <ClCompile Include="TiledBackgroundGameObject.cpp">
+      <Filter>Source Files\BaseObjects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -96,6 +99,9 @@
       <Filter>Header Files\BaseObjects</Filter>
     </ClInclude>
     <ClInclude Include="ViewAwareGameObject.h">
+      <Filter>Header Files\BaseObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="TiledBackgroundGameObject.h">
       <Filter>Header Files\BaseObjects</Filter>
     </ClInclude>
   </ItemGroup>
