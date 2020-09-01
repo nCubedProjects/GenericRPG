@@ -6,7 +6,7 @@ class BackgroundGameObject :
 
 	public:
 		BackgroundGameObject();
-		BackgroundGameObject(SDL_Texture*);
+		BackgroundGameObject(SDL_Texture*, int, int);
 
 		void UpdateViewOrigin(int, int);
 		void UpdateViewDimensions(int, int);

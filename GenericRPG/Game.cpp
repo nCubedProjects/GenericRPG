@@ -114,7 +114,7 @@ bool Game::BuildGameWorld() {
 	
 
 	//Add a background object
-	BackgroundGameObject* tmpBackgound;
+	BackgroundGameObject* tmpBackground;
 	try {
 		tmpTxtr = textureManager->GetTexturePtr("background");
 	}
@@ -122,11 +122,10 @@ bool Game::BuildGameWorld() {
 		return false;
 	}
 
-	tmpBackgound = new BackgroundGameObject(tmpTxtr);
-	tmpBackgound->UpdateViewDimensions(INIT_W, INIT_H);
-	tmpBackgound->UpdateViewOrigin(500,0); //hard code testing moving around the background
+	tmpBackground = new BackgroundGameObject(tmpTxtr, INIT_W, INIT_H);
+	tmpBackground->UpdateViewOrigin(500,500); //hard code testing moving around the background
 
-	gameObjects.push_back(tmpBackgound);
+	gameObjects.push_back(tmpBackground);
 	
 
 	//Code to add a "controllable" gme object
