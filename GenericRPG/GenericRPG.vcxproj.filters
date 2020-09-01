@@ -39,6 +39,9 @@
     <ClCompile Include="EventManager.cpp">
       <Filter>Source Files\EventSystem</Filter>
     </ClCompile>
+    <ClCompile Include="SpriteGameObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -61,6 +64,9 @@
     </ClInclude>
     <ClInclude Include="EventHandlers.h">
       <Filter>Header Files\EventSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="SpriteGameObject.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
