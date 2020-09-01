@@ -11,6 +11,7 @@
 #include "ControllableGameObject.h"
 #include "TileSetGameObject.h"
 #include "SpriteGameObject.h"
+#include "BackgroundGameObject.h"
 
 class Game{
 	public:

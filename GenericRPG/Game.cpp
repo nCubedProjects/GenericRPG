@@ -112,7 +112,23 @@ bool Game::BuildGameWorld() {
 	//TEMP: Add a game object for testing
 	SDL_Texture* tmpTxtr;
 	
+
+	//Add a background object
+	BackgroundGameObject* tmpBackgound;
+	try {
+		tmpTxtr = textureManager->GetTexturePtr("background");
+	}
+	catch (std::out_of_range) {
+		return false;
+	}
+
+	tmpBackgound = new BackgroundGameObject(tmpTxtr);
+	tmpBackgound->UpdateViewDimensions(INIT_W, INIT_H);
+	tmpBackgound->UpdateViewOrigin(500,0); //hard code testing moving around the background
+
+	gameObjects.push_back(tmpBackgound);
 	
+
 	//Code to add a "controllable" gme object
 		//this object implements a keyeventhander and mousebutton eventhandler
 	ControllableGameObject* tmpObj; 
@@ -127,7 +143,7 @@ bool Game::BuildGameWorld() {
 	tmpObj = new ControllableGameObject(tmpTxtr);
 	((GameObject*)tmpObj)->SetLocation(100, 100);
 
-	gameObjects.push_front((GameObject*)tmpObj);
+	gameObjects.push_back((GameObject*)tmpObj);
 	eventManager->RegisterKeyEventHandler((KeyEventHandler *)tmpObj);
 	eventManager->RegisterMouseButtonEventHandler((MouseButtonEventHandler*)tmpObj);
 
@@ -144,7 +160,7 @@ bool Game::BuildGameWorld() {
 	}
 
 	tmpSpriteObj = new SpriteGameObject(tmpTxtr, 2, 2, 10);
-	gameObjects.push_front((GameObject*)tmpSpriteObj);
+	gameObjects.push_back((GameObject*)tmpSpriteObj);
 
 	return true;
 }

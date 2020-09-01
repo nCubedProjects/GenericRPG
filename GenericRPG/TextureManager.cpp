@@ -25,6 +25,10 @@ bool TextureManager::Initialize() {
 		return false;
 	}
 
+	if (!AddTexture("desert_background.bmp", "background")) {
+		return false;
+	}
+
 	return true;
 }
 
@@ -34,6 +38,10 @@ bool TextureManager::Destroy() {
 	}
 
 	if (!DeleteTexture("dummytileset")) {
+		return false;
+	}
+
+	if (!DeleteTexture("background")) {
 		return false;
 	}
 
