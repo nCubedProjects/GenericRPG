@@ -150,6 +150,7 @@
     <ClCompile Include="BackgroundGameObject.cpp" />
     <ClCompile Include="TileSetGameObject.cpp" />
     <ClCompile Include="TextureManager.cpp" />
+    <ClCompile Include="ViewAwareGameObject.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ControllableGameObject.h" />
@@ -162,6 +163,7 @@
     <ClInclude Include="BackgroundGameObject.h" />
     <ClInclude Include="TileSetGameObject.h" />
     <ClInclude Include="TextureManager.h" />
+    <ClInclude Include="ViewAwareGameObject.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
