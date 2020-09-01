@@ -1,12 +1,12 @@
 #pragma once
 #include "GameObject.h"
-class SpriteGameObject :
+class TileSetGameObject :
 	public GameObject {
 public:
-	SpriteGameObject();
-	SpriteGameObject(SDL_Texture* texture, int, int);
+	TileSetGameObject();
+	TileSetGameObject(SDL_Texture* texture, int, int);
 
-	void Render(SDL_Renderer*);
+	virtual void Render(SDL_Renderer*);
 private:
 	SDL_Rect* frames;
 	int total_frames;

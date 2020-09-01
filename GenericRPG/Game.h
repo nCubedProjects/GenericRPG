@@ -9,7 +9,7 @@
 #include "EventManager.h"
 #include "GameObject.h"
 #include "ControllableGameObject.h"
-#include "SpriteGameObject.h"
+#include "TileSetGameObject.h"
 
 class Game{
 	public:

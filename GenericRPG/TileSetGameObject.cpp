@@ -1,12 +1,12 @@
-#include "SpriteGameObject.h"
+#include "TileSetGameObject.h"
 
-SpriteGameObject::SpriteGameObject() : GameObject() {
+TileSetGameObject::TileSetGameObject() : GameObject() {
 	frames = NULL;
 	total_frames = 0;
 	current_frame = 0;
 }
 
-SpriteGameObject::SpriteGameObject(SDL_Texture * texture, 
+TileSetGameObject::TileSetGameObject(SDL_Texture * texture, 
 									int num_across,			//the number of frames across the texture (left to right)
 									int num_down)			//the number of frames down the texture (top to bottom)
 	: GameObject(texture) {
@@ -35,7 +35,7 @@ SpriteGameObject::SpriteGameObject(SDL_Texture * texture,
 	current_frame = 0;
 }
 
-void SpriteGameObject::Render(SDL_Renderer* renderer) {
+void TileSetGameObject::Render(SDL_Renderer* renderer) {
 	SDL_RenderCopy(renderer, objTexture, &frames[current_frame], &objLocation);
 	current_frame = (current_frame + 1) % total_frames;
 }
