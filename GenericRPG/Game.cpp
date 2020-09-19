@@ -124,7 +124,7 @@ bool Game::BuildGameWorld() {
 		}
 
 		tmpBackground = new BackgroundGameObject(tmpTxtr, INIT_W, INIT_H);
-		tmpBackground->UpdateViewOrigin(500, 500); //hard code testing moving around the background
+		tmpBackground->UpdateViewOrigin(0, 0); //hard code testing moving around the background
 
 		gameObjects.push_back(tmpBackground);
 	}
@@ -138,6 +138,7 @@ bool Game::BuildGameWorld() {
 		}
 
 		tmpBackground = new TiledBackgroundGameObject(tmpTxtr, INIT_W, INIT_H, 2, 2);
+		tmpBackground->UpdateViewOrigin(100, 100); //hard code testing moving around the background
 
 		gameObjects.push_back(tmpBackground);
 	}
