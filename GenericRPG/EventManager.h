@@ -14,8 +14,10 @@ class EventManager {
 	private:
 		std::list<KeyEventHandler *> keyEventHandlers;
 		std::list<MouseButtonEventHandler*> mouseButtonEventHandlers;
+		std::list<MouseMotionEventHandler*> mouseMotionEventHandlers;
 
 		void HandleKeyEvent(SDL_KeyboardEvent);
 		void HandleMouseButtonEvent(SDL_MouseButtonEvent);
+		void HandleMouseMotionEvent(SDL_MouseMotionEvent);
 };
 

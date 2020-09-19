@@ -21,6 +21,8 @@ bool EventManager::HandleEvents() {
 		case SDL_MOUSEBUTTONUP:
 			HandleMouseButtonEvent(e.button);
 			break;
+		case SDL_MOUSEMOTION:
+			HandleMouseMotionEvent(e.motion);
 		default:
 			break;
 		}
@@ -49,5 +51,12 @@ void EventManager::HandleMouseButtonEvent(SDL_MouseButtonEvent e) {
 	std::list<MouseButtonEventHandler *> ::iterator mouseButtonEventHandlerPtr;
 	for (mouseButtonEventHandlerPtr = mouseButtonEventHandlers.begin(); mouseButtonEventHandlerPtr != mouseButtonEventHandlers.end(); ++mouseButtonEventHandlerPtr) {
 		(*mouseButtonEventHandlerPtr)->HandleEvent(e);
+	}
+}
+
+void EventManager::HandleMouseMotionEvent(SDL_MouseMotionEvent e) {
+	std::list<MouseMotionEventHandler*> ::iterator mouseMotionEventHandlerPtr;
+	for (mouseMotionEventHandlerPtr = mouseMotionEventHandlers.begin(); mouseMotionEventHandlerPtr != mouseMotionEventHandlers.end(); ++mouseMotionEventHandlerPtr) {
+		(*mouseMotionEventHandlerPtr)->HandleEvent(e);
 	}
 }

@@ -11,3 +11,8 @@ class MouseButtonEventHandler {
 public:
 	virtual void HandleEvent(SDL_MouseButtonEvent) = 0;
 };
+
+class MouseMotionEventHandler {
+public:
+	virtual void HandleEvent(SDL_MouseMotionEvent) = 0;
+};
