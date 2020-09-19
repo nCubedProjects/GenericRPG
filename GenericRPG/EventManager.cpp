@@ -40,6 +40,10 @@ void EventManager::RegisterMouseButtonEventHandler(MouseButtonEventHandler* mous
 	mouseButtonEventHandlers.push_back(mouseButtonEventHandler);
 }
 
+void EventManager::RegisterMouseMotionEventHandler(MouseMotionEventHandler* mouseMotionEventHandler) {
+	mouseMotionEventHandlers.push_back(mouseMotionEventHandler);
+}
+
 void EventManager::HandleKeyEvent(SDL_KeyboardEvent e) {
 	std::list<KeyEventHandler *> ::iterator keyEventHandlerPtr;
 	for (keyEventHandlerPtr = keyEventHandlers.begin(); keyEventHandlerPtr != keyEventHandlers.end(); ++keyEventHandlerPtr) {

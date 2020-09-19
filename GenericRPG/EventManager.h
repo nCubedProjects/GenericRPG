@@ -11,6 +11,7 @@ class EventManager {
 		bool HandleEvents();
 		void RegisterKeyEventHandler(KeyEventHandler *);
 		void RegisterMouseButtonEventHandler(MouseButtonEventHandler*);
+		void RegisterMouseMotionEventHandler(MouseMotionEventHandler*);
 	private:
 		std::list<KeyEventHandler *> keyEventHandlers;
 		std::list<MouseButtonEventHandler*> mouseButtonEventHandlers;
