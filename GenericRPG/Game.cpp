@@ -112,36 +112,20 @@ bool Game::BuildGameWorld() {
 	//TEMP: Add a game object for testing
 	SDL_Texture* tmpTxtr;
 	
-	bool tiled = true; //just a quick switch to keep the other background in place
-	//Add a background object
-	if (!tiled) {
-		BackgroundGameObject* tmpBackground;
-		try {
-			tmpTxtr = textureManager->GetTexturePtr("background");
-		}
-		catch (std::out_of_range) {
-			return false;
-		}
-
-		tmpBackground = new BackgroundGameObject(tmpTxtr, INIT_W, INIT_H);
-		tmpBackground->UpdateViewOrigin(0, 0); //hard code testing moving around the background
-
-		gameObjects.push_back(tmpBackground);
+	
+	GameMap* tmpBackground;
+	try {
+		tmpTxtr = textureManager->GetTexturePtr("dummytileset");
 	}
-	else {
-		TiledBackgroundGameObject* tmpBackground;
-		try {
-			tmpTxtr = textureManager->GetTexturePtr("dummytileset");
-		}
-		catch (std::out_of_range) {
-			return false;
-		}
-
-		tmpBackground = new TiledBackgroundGameObject(tmpTxtr, INIT_W, INIT_H, 2, 2);
-		tmpBackground->UpdateViewOrigin(100, 100); //hard code testing moving around the background
-
-		gameObjects.push_back(tmpBackground);
+	catch (std::out_of_range) {
+		return false;
 	}
+
+	tmpBackground = new GameMap(tmpTxtr, INIT_W, INIT_H, 2, 2);
+	tmpBackground->UpdateViewOrigin(100, 100); //hard code testing moving around the background
+
+	gameObjects.push_back(tmpBackground);
+	eventManager->RegisterMouseMotionEventHandler((MouseMotionEventHandler*)tmpBackground);
 
 	//Code to add a "controllable" gme object
 		//this object implements a keyeventhander and mousebutton eventhandler

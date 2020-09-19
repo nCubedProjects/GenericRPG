@@ -144,6 +144,7 @@
     <ClCompile Include="ControllableGameObject.cpp" />
     <ClCompile Include="EventManager.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="GameMap.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="SpriteGameObject.cpp" />
@@ -157,6 +158,7 @@
     <ClInclude Include="ControllableGameObject.h" />
     <ClInclude Include="EventManager.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="GameMap.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GameProperties.h" />
     <ClInclude Include="EventHandlers.h" />

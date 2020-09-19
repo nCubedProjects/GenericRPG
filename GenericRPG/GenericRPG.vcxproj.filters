@@ -66,6 +66,9 @@
     <ClCompile Include="TiledBackgroundGameObject.cpp">
       <Filter>Source Files\BaseObjects</Filter>
     </ClCompile>
+    <ClCompile Include="GameMap.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -103,6 +106,9 @@
     </ClInclude>
     <ClInclude Include="TiledBackgroundGameObject.h">
       <Filter>Header Files\BaseObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="GameMap.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
