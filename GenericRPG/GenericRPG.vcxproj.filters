@@ -20,9 +20,6 @@
     <Filter Include="GenericRPG">
       <UniqueIdentifier>{b175f4b0-af38-424f-958d-be1d6240cb14}</UniqueIdentifier>
     </Filter>
-    <Filter Include="GameSystems\Header Files">
-      <UniqueIdentifier>{7d04c99a-8aff-47e9-80f2-2bc32d0ad0fd}</UniqueIdentifier>
-    </Filter>
     <Filter Include="GameSystems\EventSystem">
       <UniqueIdentifier>{51f1dabd-0873-4866-952e-56ebeacdd4dd}</UniqueIdentifier>
     </Filter>
@@ -38,7 +35,13 @@
     <Filter Include="GameSystems\EventSystem\Source Files">
       <UniqueIdentifier>{28a96c0b-6796-4655-8151-3f6ef614f338}</UniqueIdentifier>
     </Filter>
-    <Filter Include="GameSystems\Source Files">
+    <Filter Include="GameSystems\TextureSystem">
+      <UniqueIdentifier>{ef829ce7-d6af-4573-a59a-61e497fe1a8f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameSystems\TextureSystem\Header Files">
+      <UniqueIdentifier>{7d04c99a-8aff-47e9-80f2-2bc32d0ad0fd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameSystems\TextureSystem\Source Files">
       <UniqueIdentifier>{ba8a59a7-9340-4de4-b329-5cf8ce3e1913}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -74,7 +77,7 @@
       <Filter>GameSystems\EventSystem\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="TextureManager.cpp">
-      <Filter>GameSystems\Source Files</Filter>
+      <Filter>GameSystems\TextureSystem\Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -97,7 +100,7 @@
       <Filter>BaseObjects\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="TextureManager.h">
-      <Filter>GameSystems\Header Files</Filter>
+      <Filter>GameSystems\TextureSystem\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="EventHandlers.h">
       <Filter>GameSystems\EventSystem\Header Files</Filter>
