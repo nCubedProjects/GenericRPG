@@ -1,114 +1,121 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;c++;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
     <Filter Include="Resource Files">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Source Files\BaseObjects">
-      <UniqueIdentifier>{bd23048a-1a74-43ef-9107-54ec75d16914}</UniqueIdentifier>
+    <Filter Include="BaseObjects">
+      <UniqueIdentifier>{18bb1fa8-255c-4a8a-bbfb-fda6410c3c76}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\GameSystems">
-      <UniqueIdentifier>{8b59f45b-6877-477a-a6e0-af43858a783e}</UniqueIdentifier>
+    <Filter Include="BaseObjects\Header Files">
+      <UniqueIdentifier>{d1c7f3ad-f4b9-47f2-a1b0-457c4f094ce1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\GameSystems\EventSystem">
-      <UniqueIdentifier>{a765bcee-db85-4c1d-a7f3-85405a2dd496}</UniqueIdentifier>
+    <Filter Include="BaseObjects\Source Files">
+      <UniqueIdentifier>{5759c379-75bd-45e8-917b-f2e669d6b593}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\BaseObjects">
-      <UniqueIdentifier>{9f5c2592-e5f2-4f6c-ae72-b811be4efeca}</UniqueIdentifier>
+    <Filter Include="GameSystems">
+      <UniqueIdentifier>{c5572be0-ce58-44b6-8d8b-0e91d0a31704}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\GameSystems">
-      <UniqueIdentifier>{9d5876ea-a8ac-47d8-b2a6-33a0b7775d48}</UniqueIdentifier>
+    <Filter Include="GenericRPG">
+      <UniqueIdentifier>{b175f4b0-af38-424f-958d-be1d6240cb14}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\GameSystems\EventSystem">
+    <Filter Include="GameSystems\Header Files">
+      <UniqueIdentifier>{7d04c99a-8aff-47e9-80f2-2bc32d0ad0fd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameSystems\EventSystem">
       <UniqueIdentifier>{51f1dabd-0873-4866-952e-56ebeacdd4dd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GameSystems\EventSystem\Header Files">
+      <UniqueIdentifier>{3d36f7a0-c6b3-460f-a6a8-5f91fb51b4e8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GenericRPG\Header Files">
+      <UniqueIdentifier>{52cb835c-86e5-4473-9081-3275a802a4ba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GenericRPG\Source Files">
+      <UniqueIdentifier>{7e4f2431-f441-4d82-8056-bfb219c22e2d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameSystems\EventSystem\Source Files">
+      <UniqueIdentifier>{28a96c0b-6796-4655-8151-3f6ef614f338}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameSystems\Source Files">
+      <UniqueIdentifier>{ba8a59a7-9340-4de4-b329-5cf8ce3e1913}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Game.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ControllableGameObject.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="EventManager.cpp">
-      <Filter>Source Files\GameSystems\EventSystem</Filter>
-    </ClCompile>
-    <ClCompile Include="TileSetGameObject.cpp">
-      <Filter>Source Files\BaseObjects</Filter>
+    <ClCompile Include="BackgroundGameObject.cpp">
+      <Filter>BaseObjects\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="GameObject.cpp">
-      <Filter>Source Files\BaseObjects</Filter>
-    </ClCompile>
-    <ClCompile Include="TextureManager.cpp">
-      <Filter>Source Files\GameSystems</Filter>
+      <Filter>BaseObjects\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="SpriteGameObject.cpp">
-      <Filter>Source Files\BaseObjects</Filter>
-    </ClCompile>
-    <ClCompile Include="BackgroundGameObject.cpp">
-      <Filter>Source Files\BaseObjects</Filter>
-    </ClCompile>
-    <ClCompile Include="ViewAwareGameObject.cpp">
-      <Filter>Source Files\BaseObjects</Filter>
+      <Filter>BaseObjects\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="TiledBackgroundGameObject.cpp">
-      <Filter>Source Files\BaseObjects</Filter>
+      <Filter>BaseObjects\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TileSetGameObject.cpp">
+      <Filter>BaseObjects\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ViewAwareGameObject.cpp">
+      <Filter>BaseObjects\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ControllableGameObject.cpp">
+      <Filter>GenericRPG\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>GenericRPG\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="GameMap.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>GenericRPG\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EventManager.cpp">
+      <Filter>GameSystems\EventSystem\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureManager.cpp">
+      <Filter>GameSystems\Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Game.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="GameProperties.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ControllableGameObject.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="EventManager.h">
-      <Filter>Header Files\GameSystems\EventSystem</Filter>
-    </ClInclude>
-    <ClInclude Include="EventHandlers.h">
-      <Filter>Header Files\GameSystems\EventSystem</Filter>
-    </ClInclude>
-    <ClInclude Include="TileSetGameObject.h">
-      <Filter>Header Files\BaseObjects</Filter>
+    <ClInclude Include="BackgroundGameObject.h">
+      <Filter>BaseObjects\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="GameObject.h">
-      <Filter>Header Files\BaseObjects</Filter>
-    </ClInclude>
-    <ClInclude Include="TextureManager.h">
-      <Filter>Header Files\GameSystems</Filter>
+      <Filter>BaseObjects\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="SpriteGameObject.h">
-      <Filter>Header Files\BaseObjects</Filter>
-    </ClInclude>
-    <ClInclude Include="BackgroundGameObject.h">
-      <Filter>Header Files\BaseObjects</Filter>
-    </ClInclude>
-    <ClInclude Include="ViewAwareGameObject.h">
-      <Filter>Header Files\BaseObjects</Filter>
+      <Filter>BaseObjects\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="TiledBackgroundGameObject.h">
-      <Filter>Header Files\BaseObjects</Filter>
+      <Filter>BaseObjects\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TileSetGameObject.h">
+      <Filter>BaseObjects\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ViewAwareGameObject.h">
+      <Filter>BaseObjects\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureManager.h">
+      <Filter>GameSystems\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EventHandlers.h">
+      <Filter>GameSystems\EventSystem\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EventManager.h">
+      <Filter>GameSystems\EventSystem\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ControllableGameObject.h">
+      <Filter>GenericRPG\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.h">
+      <Filter>GenericRPG\Header Files</Filter>
     </ClInclude>
     <ClInclude Include="GameMap.h">
-      <Filter>Header Files</Filter>
+      <Filter>GenericRPG\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GameProperties.h">
+      <Filter>GenericRPG\Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

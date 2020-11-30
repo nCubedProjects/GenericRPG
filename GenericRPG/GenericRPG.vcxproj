@@ -146,7 +146,6 @@
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameMap.cpp" />
     <ClCompile Include="GameObject.cpp" />
-    <ClCompile Include="main.cpp" />
     <ClCompile Include="SpriteGameObject.cpp" />
     <ClCompile Include="BackgroundGameObject.cpp" />
     <ClCompile Include="TiledBackgroundGameObject.cpp" />
