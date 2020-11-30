@@ -79,6 +79,7 @@
     <ClCompile Include="TextureManager.cpp">
       <Filter>GameSystems\TextureSystem\Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BackgroundGameObject.h">
