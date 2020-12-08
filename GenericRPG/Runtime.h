@@ -29,7 +29,7 @@ class Runtime {
 		
 		Game* game;
 
-		SDL_Window* window = nullptr;
+		std::shared_ptr<SDL_Window> window;
 
 		std::shared_ptr<SDL_Renderer> renderer;
 		

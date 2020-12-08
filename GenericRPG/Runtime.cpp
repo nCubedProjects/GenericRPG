@@ -15,12 +15,13 @@ Runtime::Runtime()
 	}
 
 	//Create the game window
-	window = SDL_CreateWindow(GAMENAME,
+	// using shared_ptr, so pass in the Destroy function as the Deleter
+	window = std::shared_ptr<SDL_Window>(SDL_CreateWindow(GAMENAME,
 		SDL_WINDOWPOS_CENTERED,
 		SDL_WINDOWPOS_CENTERED,
 		INIT_W,
 		INIT_H,
-		0);
+		0), SDL_DestroyWindow);
 	if (!window) {
 		std::cout << "Could not create window: " << SDL_GetError() << std::endl;
 		throw;
@@ -28,13 +29,11 @@ Runtime::Runtime()
 
 	//Create the main renderer
 	// using shared_ptr, so pass in the Destroy function as the Deleter
-	renderer = std::shared_ptr<SDL_Renderer>(SDL_CreateRenderer(window,
+	renderer = std::shared_ptr<SDL_Renderer>(SDL_CreateRenderer(window.get(),
 		-1,
 		SDL_RENDERER_ACCELERATED), SDL_DestroyRenderer);
 	if (!renderer) {
 		std::cout << "Could create renderer: " << SDL_GetError() << std::endl;
-		SDL_DestroyWindow(window);
-
 		SDL_Quit();
 		throw;
 	}
@@ -43,8 +42,6 @@ Runtime::Runtime()
 	texture_manager = std::shared_ptr<TextureManager>(new TextureManager());
 	if (!texture_manager->Initialize()) {
 		std::cout << "Failed to initialize texture manager" << std::endl;
-		SDL_DestroyWindow(window);
-
 		SDL_Quit();
 		throw;
 	}
@@ -58,9 +55,6 @@ Runtime::Runtime()
 
 Runtime::~Runtime() {
 	texture_manager->Destroy();
-
-	SDL_DestroyWindow(window);
-
 	SDL_Quit();
 }
 
