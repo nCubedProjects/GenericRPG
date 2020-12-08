@@ -30,8 +30,8 @@ Game::~Game() {
 bool Game::BuildGameWorld() {
 	//hook into the runtime system to build the game world
 	std::shared_ptr<Runtime> game_runtime = Runtime::Get();
-	TextureManager* texture_manager = game_runtime->GetTextureManager();
-	EventManager* event_manager = game_runtime->GetEventManager();
+	std::shared_ptr<TextureManager> texture_manager = game_runtime->GetTextureManager();
+	std::shared_ptr<EventManager> event_manager = game_runtime->GetEventManager();
 
 	//TEMP: Add a game object for testing
 	SDL_Texture* tmpTxtr;

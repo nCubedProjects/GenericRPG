@@ -16,8 +16,8 @@ class Runtime {
 		static std::shared_ptr<Runtime> Get();
 
 		SDL_Renderer* Renderer();
-		TextureManager* GetTextureManager();
-		EventManager* GetEventManager();
+		std::shared_ptr<TextureManager> GetTextureManager();
+		std::shared_ptr<EventManager> GetEventManager();
 
 		bool RunGameLoop();
 
@@ -31,8 +31,9 @@ class Runtime {
 		SDL_Window* window = nullptr;
 
 		SDL_Renderer* renderer = nullptr;
-		TextureManager* texture_manager;
-		EventManager* event_manager;
+		
+		std::shared_ptr<TextureManager> texture_manager;
+		std::shared_ptr<EventManager> event_manager;
 
 		std::queue<GameObject*> render_queue;
 

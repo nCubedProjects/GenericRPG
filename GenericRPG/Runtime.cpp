@@ -36,7 +36,7 @@ Runtime::Runtime()
 	}
 
 	//Load all game textures
-	texture_manager = new TextureManager(renderer);
+	texture_manager = std::shared_ptr<TextureManager>(new TextureManager(renderer));
 	if (!texture_manager->Initialize()) {
 		std::cout << "Failed to initialize texture manager" << std::endl;
 		SDL_DestroyRenderer(renderer);
@@ -47,7 +47,7 @@ Runtime::Runtime()
 	}
 
 	//Initialize the event manager
-	event_manager = new EventManager();
+	event_manager = std::shared_ptr<EventManager>(new EventManager());
 
 	//set the singleton pointer
 	game_runtime = std::shared_ptr<Runtime>(this);
@@ -57,10 +57,7 @@ Runtime::Runtime()
 }
 
 Runtime::~Runtime() {
-	delete event_manager;
-
 	texture_manager->Destroy();
-	delete texture_manager;
 
 	SDL_DestroyRenderer(renderer);
 	SDL_DestroyWindow(window);
@@ -80,11 +77,11 @@ SDL_Renderer* Runtime::Renderer() {
 	return renderer;
 }
 
-TextureManager* Runtime::GetTextureManager() {
+std::shared_ptr<TextureManager> Runtime::GetTextureManager() {
 	return texture_manager;
 }
 
-EventManager* Runtime::GetEventManager() {
+std::shared_ptr<EventManager> Runtime::GetEventManager() {
 	return event_manager;
 }
 
