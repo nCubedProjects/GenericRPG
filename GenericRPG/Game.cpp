@@ -16,7 +16,7 @@ Game::Game() {
 
 bool Game::Run() {
 	//this sets up for allowing a different set of objects to be renderer each frame.
-	Runtime* game_runtime = Runtime::Get();
+	std::shared_ptr<Runtime> game_runtime = Runtime::Get();
 	for (auto game_object_ptr : game_objects) {
 		game_runtime->AddToRenderQueue(game_object_ptr);
 	}
@@ -29,7 +29,7 @@ Game::~Game() {
 
 bool Game::BuildGameWorld() {
 	//hook into the runtime system to build the game world
-	Runtime* game_runtime = Runtime::Get();
+	std::shared_ptr<Runtime> game_runtime = Runtime::Get();
 	TextureManager* texture_manager = game_runtime->GetTextureManager();
 	EventManager* event_manager = game_runtime->GetEventManager();
 

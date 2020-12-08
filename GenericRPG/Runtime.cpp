@@ -2,7 +2,7 @@
 
 #include "Runtime.h"
 
-Runtime* Runtime::game_runtime;
+std::shared_ptr<Runtime> Runtime::game_runtime;
 
 Runtime::Runtime()
 {
@@ -50,7 +50,7 @@ Runtime::Runtime()
 	event_manager = new EventManager();
 
 	//set the singleton pointer
-	game_runtime = this;
+	game_runtime = std::shared_ptr<Runtime>(this);
 
 	//initialize the game
 	game = new Game();
@@ -68,10 +68,11 @@ Runtime::~Runtime() {
 	SDL_Quit();
 }
 
-Runtime* Runtime::Get() {
+std::shared_ptr<Runtime> Runtime::Get() {
 	if(game_runtime)
 		return game_runtime;
-
+	
+	throw;
 	return nullptr;
 }
 

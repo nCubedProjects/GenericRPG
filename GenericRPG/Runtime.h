@@ -13,7 +13,7 @@ class Runtime {
 		Runtime();
 		~Runtime();
 
-		static Runtime* Get();
+		static std::shared_ptr<Runtime> Get();
 
 		SDL_Renderer* Renderer();
 		TextureManager* GetTextureManager();
@@ -24,7 +24,7 @@ class Runtime {
 		void AddToRenderQueue(GameObject*);
 
 	private:
-		static Runtime* game_runtime;
+		static std::shared_ptr<Runtime> game_runtime;
 		
 		Game* game;
 
