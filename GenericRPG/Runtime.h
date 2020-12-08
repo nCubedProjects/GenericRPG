@@ -31,8 +31,8 @@ class Runtime {
 		SDL_Window* window = nullptr;
 
 		SDL_Renderer* renderer = nullptr;
-		TextureManager* textureManager;
-		EventManager* eventManager;
+		TextureManager* texture_manager;
+		EventManager* event_manager;
 
 		std::queue<GameObject*> render_queue;
 

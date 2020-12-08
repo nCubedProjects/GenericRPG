@@ -12,15 +12,15 @@ TileSetGameObject::TileSetGameObject(SDL_Texture * texture,
 
 	
 	int w, h;	//temp vars for a single frame's width and height in pixels.
-	SDL_QueryTexture(objTexture, NULL, NULL, &w, &h);
+	SDL_QueryTexture(obj_texture, NULL, NULL, &w, &h);
 
 	//calculate the size of one frame
 	w = w / num_across;
 	h = h / num_down;
 
 	//set the default location width and height to be the size of one frame, not the whole texture
-	objLocation.w = w;
-	objLocation.h = h;
+	obj_location.w = w;
+	obj_location.h = h;
 
 
 	//initialize the frames
@@ -43,5 +43,5 @@ TileSetGameObject::TileSetGameObject(SDL_Texture * texture,
 }
 
 void TileSetGameObject::Render(SDL_Renderer* renderer) {
-	SDL_RenderCopy(renderer, objTexture, &frames[0], &objLocation);
+	SDL_RenderCopy(renderer, obj_texture, &frames[0], &obj_location);
 }

@@ -19,7 +19,7 @@ class TextureManager {
         bool AddTexture(const char *, const char *);
         bool DeleteTexture(const char*);
 
-        std::map<const char *, SDL_Texture *> *textureMap;
-        SDL_Renderer* gameRenderer;
+        std::map<const char *, SDL_Texture *> *texture_map;
+        SDL_Renderer* game_renderer;
 };
 

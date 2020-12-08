@@ -2,8 +2,8 @@
 #include "EventManager.h"
 
 EventManager::EventManager() {
-	keyEventHandlers = std::list<KeyEventHandler *>();
-	mouseButtonEventHandlers = std::list<MouseButtonEventHandler*>();
+	key_event_handlers = std::list<KeyEventHandler *>();
+	mousebutton_event_handlers = std::list<MouseButtonEventHandler*>();
 }
 
 bool EventManager::HandleEvents() {
@@ -33,34 +33,34 @@ bool EventManager::HandleEvents() {
 
 
 void EventManager::RegisterKeyEventHandler(KeyEventHandler * keyEventHandler) {
-	keyEventHandlers.push_back(keyEventHandler);
+	key_event_handlers.push_back(keyEventHandler);
 }
 
 void EventManager::RegisterMouseButtonEventHandler(MouseButtonEventHandler* mouseButtonEventHandler) {
-	mouseButtonEventHandlers.push_back(mouseButtonEventHandler);
+	mousebutton_event_handlers.push_back(mouseButtonEventHandler);
 }
 
 void EventManager::RegisterMouseMotionEventHandler(MouseMotionEventHandler* mouseMotionEventHandler) {
-	mouseMotionEventHandlers.push_back(mouseMotionEventHandler);
+	mousemotion_event_handlers.push_back(mouseMotionEventHandler);
 }
 
 void EventManager::HandleKeyEvent(SDL_KeyboardEvent e) {
 	std::list<KeyEventHandler *> ::iterator keyEventHandlerPtr;
-	for (keyEventHandlerPtr = keyEventHandlers.begin(); keyEventHandlerPtr != keyEventHandlers.end(); ++keyEventHandlerPtr) {
+	for (keyEventHandlerPtr = key_event_handlers.begin(); keyEventHandlerPtr != key_event_handlers.end(); ++keyEventHandlerPtr) {
 		(*keyEventHandlerPtr)->HandleEvent(e);
 	}
 }
 
 void EventManager::HandleMouseButtonEvent(SDL_MouseButtonEvent e) {
 	std::list<MouseButtonEventHandler *> ::iterator mouseButtonEventHandlerPtr;
-	for (mouseButtonEventHandlerPtr = mouseButtonEventHandlers.begin(); mouseButtonEventHandlerPtr != mouseButtonEventHandlers.end(); ++mouseButtonEventHandlerPtr) {
+	for (mouseButtonEventHandlerPtr = mousebutton_event_handlers.begin(); mouseButtonEventHandlerPtr != mousebutton_event_handlers.end(); ++mouseButtonEventHandlerPtr) {
 		(*mouseButtonEventHandlerPtr)->HandleEvent(e);
 	}
 }
 
 void EventManager::HandleMouseMotionEvent(SDL_MouseMotionEvent e) {
 	std::list<MouseMotionEventHandler*> ::iterator mouseMotionEventHandlerPtr;
-	for (mouseMotionEventHandlerPtr = mouseMotionEventHandlers.begin(); mouseMotionEventHandlerPtr != mouseMotionEventHandlers.end(); ++mouseMotionEventHandlerPtr) {
+	for (mouseMotionEventHandlerPtr = mousemotion_event_handlers.begin(); mouseMotionEventHandlerPtr != mousemotion_event_handlers.end(); ++mouseMotionEventHandlerPtr) {
 		(*mouseMotionEventHandlerPtr)->HandleEvent(e);
 	}
 }

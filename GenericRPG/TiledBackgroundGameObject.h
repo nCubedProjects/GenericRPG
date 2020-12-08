@@ -14,8 +14,8 @@ public:
 
 protected:
 	Uint8** frame_id_grid;
-	SDL_Texture* generatedBackground;
+	SDL_Texture* generated_background;
 
-	void generateBackground();
+	void GenerateBackground();
 };
 

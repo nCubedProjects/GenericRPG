@@ -12,7 +12,7 @@ BackgroundGameObject::BackgroundGameObject(SDL_Texture* texture, int view_width,
 
 	//don't set view dimensions to something smaller than the background
 
-	SDL_QueryTexture(objTexture, NULL, NULL, &w, &h);
+	SDL_QueryTexture(obj_texture, NULL, NULL, &w, &h);
 	if (view_width > w || view_height > h) {
 		throw;
 	}
@@ -21,7 +21,7 @@ BackgroundGameObject::BackgroundGameObject(SDL_Texture* texture, int view_width,
 void BackgroundGameObject::UpdateViewOrigin(int x, int y) {
 	int w, h; //temp variables to hold texture width and height
 	
-	SDL_QueryTexture(objTexture, NULL, NULL, &w, &h);
+	SDL_QueryTexture(obj_texture, NULL, NULL, &w, &h);
 
 	//Don't set origin past the point that would stretch the background.
 		//So if x and y allow the view's width and height to 
@@ -35,7 +35,7 @@ void BackgroundGameObject::UpdateViewDimensions(int view_width ,int view_height)
 	int w, h; //temp variables to hold texture width and height
 
 	//don't set view dimensions to something smaller than the background
-	SDL_QueryTexture(objTexture, NULL, NULL, &w, &h);
+	SDL_QueryTexture(obj_texture, NULL, NULL, &w, &h);
 	if (view_width > w || view_height > h) {
 		throw;
 	}
@@ -45,5 +45,5 @@ void BackgroundGameObject::UpdateViewDimensions(int view_width ,int view_height)
 
 void BackgroundGameObject::Render(SDL_Renderer* renderer) {
 	SDL_Rect dst = { 0,0,view.w, view.h };
-	SDL_RenderCopy(renderer, objTexture, &view, &dst);
+	SDL_RenderCopy(renderer, obj_texture, &view, &dst);
 }

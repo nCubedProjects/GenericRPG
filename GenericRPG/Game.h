@@ -18,7 +18,7 @@ class Game{
 		bool Run();
 
 	private:
-		std::list<GameObject*> gameObjects;
+		std::list<GameObject*> game_objects;
 		bool BuildGameWorld();
 };
 

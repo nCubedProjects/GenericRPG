@@ -23,6 +23,6 @@ private:
 
 	void ButtonPressed(int, int);
 
-	bool isMoving;
+	bool is_moving;
 };
 

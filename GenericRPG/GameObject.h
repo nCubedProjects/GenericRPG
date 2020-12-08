@@ -11,7 +11,7 @@ class GameObject {
 		virtual void SetTexture(SDL_Texture*);
 	
 	protected:
-		SDL_Texture *	objTexture;
-		SDL_Rect		objLocation;
+		SDL_Texture *	obj_texture;
+		SDL_Rect		obj_location;
 };
 

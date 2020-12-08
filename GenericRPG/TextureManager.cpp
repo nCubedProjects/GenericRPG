@@ -3,14 +3,14 @@
 #include "TextureManager.h"
 
 TextureManager::TextureManager(SDL_Renderer* renderer) {
-	gameRenderer = renderer;
-	textureMap = new std::map<const char*, SDL_Texture*>();
+	game_renderer = renderer;
+	texture_map = new std::map<const char*, SDL_Texture*>();
 
 	
 }
 
 TextureManager::~TextureManager() {
-	delete textureMap;
+	delete texture_map;
 }
 
 
@@ -50,7 +50,7 @@ bool TextureManager::Destroy() {
 
 
 SDL_Texture* TextureManager::GetTexturePtr(const char* textureName) {
-	return textureMap->at(textureName);
+	return texture_map->at(textureName);
 }
 
 
@@ -62,9 +62,9 @@ bool TextureManager::AddTexture(const char * filename, const char * textureName)
 	if (!load) {
 		return false;
 	}
-	newTexture = SDL_CreateTextureFromSurface(gameRenderer, load);
+	newTexture = SDL_CreateTextureFromSurface(game_renderer, load);
 
-	textureMap->insert(std::pair<const char*, SDL_Texture*>(textureName, newTexture));
+	texture_map->insert(std::pair<const char*, SDL_Texture*>(textureName, newTexture));
 
 	SDL_FreeSurface(load);
 
@@ -75,8 +75,8 @@ bool TextureManager::DeleteTexture(const char* textureName) {
 	SDL_Texture* toDelete;
 
 	try {
-		toDelete = textureMap->at(textureName);
-		textureMap->erase(textureName);
+		toDelete = texture_map->at(textureName);
+		texture_map->erase(textureName);
 	}
 	catch (std::out_of_range) {
 		return false;

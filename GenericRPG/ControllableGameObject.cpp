@@ -1,11 +1,11 @@
 #include "ControllableGameObject.h"
 
 ControllableGameObject::ControllableGameObject() : GameObject() {
-	isMoving = false;
+	is_moving = false;
 }
 
 ControllableGameObject::ControllableGameObject(SDL_Texture* texture) : GameObject(texture) {
-	isMoving = false;
+	is_moving = false;
 }
 
 void ControllableGameObject::HandleEvent(SDL_KeyboardEvent e) {
@@ -51,19 +51,19 @@ void ControllableGameObject::HandleEvent(SDL_MouseButtonEvent e) {
 
 
 void ControllableGameObject::Render(SDL_Renderer* renderer) {
-	if (isMoving) {
-		SetLocation(objLocation.x + 1, objLocation.y + 1);
+	if (is_moving) {
+		SetLocation(obj_location.x + 1, obj_location.y + 1);
 	}
 
-	SDL_RenderCopy(renderer, objTexture, NULL, &objLocation);
+	SDL_RenderCopy(renderer, obj_texture, NULL, &obj_location);
 }
 
 void ControllableGameObject::AKeyPressed() {
-	isMoving = true;
+	is_moving = true;
 }
 
 void ControllableGameObject::AKeyReleased() {
-	isMoving = false;
+	is_moving = false;
 }
 
 void ControllableGameObject::ButtonPressed(int x, int y) {

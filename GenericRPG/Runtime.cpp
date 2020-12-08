@@ -36,8 +36,8 @@ Runtime::Runtime()
 	}
 
 	//Load all game textures
-	textureManager = new TextureManager(renderer);
-	if (!textureManager->Initialize()) {
+	texture_manager = new TextureManager(renderer);
+	if (!texture_manager->Initialize()) {
 		std::cout << "Failed to initialize texture manager" << std::endl;
 		SDL_DestroyRenderer(renderer);
 		SDL_DestroyWindow(window);
@@ -47,7 +47,7 @@ Runtime::Runtime()
 	}
 
 	//Initialize the event manager
-	eventManager = new EventManager();
+	event_manager = new EventManager();
 
 	//set the singleton pointer
 	game_runtime = this;
@@ -57,10 +57,10 @@ Runtime::Runtime()
 }
 
 Runtime::~Runtime() {
-	delete eventManager;
+	delete event_manager;
 
-	textureManager->Destroy();
-	delete textureManager;
+	texture_manager->Destroy();
+	delete texture_manager;
 
 	SDL_DestroyRenderer(renderer);
 	SDL_DestroyWindow(window);
@@ -80,11 +80,11 @@ SDL_Renderer* Runtime::Renderer() {
 }
 
 TextureManager* Runtime::GetTextureManager() {
-	return textureManager;
+	return texture_manager;
 }
 
 EventManager* Runtime::GetEventManager() {
-	return eventManager;
+	return event_manager;
 }
 
 bool Runtime::RunGameLoop() {
@@ -92,7 +92,7 @@ bool Runtime::RunGameLoop() {
 	int start_ticks = SDL_GetTicks();
 
 	//Handle Events
-	if (!eventManager->HandleEvents()) {
+	if (!event_manager->HandleEvents()) {
 		return false;
 	}
 

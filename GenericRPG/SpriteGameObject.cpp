@@ -19,7 +19,7 @@ SpriteGameObject::SpriteGameObject(SDL_Texture * texture,
 
 void SpriteGameObject::Render(SDL_Renderer* renderer) {
 
-	SDL_RenderCopy(renderer, objTexture, &frames[current_frame], &objLocation);
+	SDL_RenderCopy(renderer, obj_texture, &frames[current_frame], &obj_location);
 
 	frames_rendered = (frames_rendered + 1) % frame_rate;
 	if(frames_rendered == 0) current_frame = (current_frame + 1) % total_frames;
