@@ -1,5 +1,6 @@
 #pragma once
 #include <queue>
+#include <memory>
 
 #include "Properties.h"
 #include "TextureManager.h"
@@ -15,7 +16,7 @@ class Runtime {
 
 		static std::shared_ptr<Runtime> Get();
 
-		SDL_Renderer* Renderer();
+		std::shared_ptr<SDL_Renderer> Renderer();
 		std::shared_ptr<TextureManager> GetTextureManager();
 		std::shared_ptr<EventManager> GetEventManager();
 
@@ -30,7 +31,7 @@ class Runtime {
 
 		SDL_Window* window = nullptr;
 
-		SDL_Renderer* renderer = nullptr;
+		std::shared_ptr<SDL_Renderer> renderer;
 		
 		std::shared_ptr<TextureManager> texture_manager;
 		std::shared_ptr<EventManager> event_manager;

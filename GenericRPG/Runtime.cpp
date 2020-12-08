@@ -6,6 +6,9 @@ std::shared_ptr<Runtime> Runtime::game_runtime;
 
 Runtime::Runtime()
 {
+	//set the singleton pointer
+	game_runtime = std::shared_ptr<Runtime>(this);
+
 	if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_EVENTS)) {
 		std::cout << "Failed to initialize SDL" << std::endl;
 		throw;
@@ -24,9 +27,10 @@ Runtime::Runtime()
 	}
 
 	//Create the main renderer
-	renderer = SDL_CreateRenderer(window,
+	// using shared_ptr, so pass in the Destroy function as the Deleter
+	renderer = std::shared_ptr<SDL_Renderer>(SDL_CreateRenderer(window,
 		-1,
-		SDL_RENDERER_ACCELERATED);
+		SDL_RENDERER_ACCELERATED), SDL_DestroyRenderer);
 	if (!renderer) {
 		std::cout << "Could create renderer: " << SDL_GetError() << std::endl;
 		SDL_DestroyWindow(window);
@@ -36,10 +40,9 @@ Runtime::Runtime()
 	}
 
 	//Load all game textures
-	texture_manager = std::shared_ptr<TextureManager>(new TextureManager(renderer));
+	texture_manager = std::shared_ptr<TextureManager>(new TextureManager());
 	if (!texture_manager->Initialize()) {
 		std::cout << "Failed to initialize texture manager" << std::endl;
-		SDL_DestroyRenderer(renderer);
 		SDL_DestroyWindow(window);
 
 		SDL_Quit();
@@ -49,9 +52,6 @@ Runtime::Runtime()
 	//Initialize the event manager
 	event_manager = std::shared_ptr<EventManager>(new EventManager());
 
-	//set the singleton pointer
-	game_runtime = std::shared_ptr<Runtime>(this);
-
 	//initialize the game
 	game = new Game();
 }
@@ -59,7 +59,6 @@ Runtime::Runtime()
 Runtime::~Runtime() {
 	texture_manager->Destroy();
 
-	SDL_DestroyRenderer(renderer);
 	SDL_DestroyWindow(window);
 
 	SDL_Quit();
@@ -73,7 +72,7 @@ std::shared_ptr<Runtime> Runtime::Get() {
 	return nullptr;
 }
 
-SDL_Renderer* Runtime::Renderer() {
+std::shared_ptr<SDL_Renderer> Runtime::Renderer() {
 	return renderer;
 }
 
@@ -100,15 +99,16 @@ bool Runtime::RunGameLoop() {
 	}
 
 	//Handle Rendering
-	SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
-	SDL_RenderClear(renderer);
+	SDL_SetRenderDrawColor(renderer.get(), 255, 255, 255, 255);
+	SDL_RenderClear(renderer.get());
 
 	while(!render_queue.empty()){
 		GameObject* game_object_ptr = render_queue.front();
 		render_queue.pop();
-		game_object_ptr->Render(renderer);
+		//TODO: make the various objects take a shared_ptr
+		game_object_ptr->Render(renderer.get());
 	}
-	SDL_RenderPresent(renderer);
+	SDL_RenderPresent(renderer.get());
 
 
 	//Delay if needed for capping frame rate

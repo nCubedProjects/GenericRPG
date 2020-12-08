@@ -1,12 +1,11 @@
 #pragma once
 
 #include <map>
-
 #include <SDL.h>
 
 class TextureManager {
     public: 
-        TextureManager(SDL_Renderer *);
+        TextureManager();
         ~TextureManager();
 
         bool Initialize();
@@ -20,6 +19,5 @@ class TextureManager {
         bool DeleteTexture(const char*);
 
         std::map<const char *, SDL_Texture *> *texture_map;
-        SDL_Renderer* game_renderer;
 };
 

@@ -1,12 +1,10 @@
 #include <stdexcept>
 
 #include "TextureManager.h"
+#include "Runtime.h"
 
-TextureManager::TextureManager(SDL_Renderer* renderer) {
-	game_renderer = renderer;
+TextureManager::TextureManager() {
 	texture_map = new std::map<const char*, SDL_Texture*>();
-
-	
 }
 
 TextureManager::~TextureManager() {
@@ -62,7 +60,9 @@ bool TextureManager::AddTexture(const char * filename, const char * textureName)
 	if (!load) {
 		return false;
 	}
-	newTexture = SDL_CreateTextureFromSurface(game_renderer, load);
+	static SDL_Renderer* renderer = Runtime::Get()->Renderer().get();
+
+	newTexture = SDL_CreateTextureFromSurface(renderer, load);
 
 	texture_map->insert(std::pair<const char*, SDL_Texture*>(textureName, newTexture));
 
