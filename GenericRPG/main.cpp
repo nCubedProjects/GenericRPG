@@ -1,16 +1,11 @@
 #include <iostream>
-#include "Game.h"
+
+#include "Runtime.h"
 
 int main(int argc, char** args) {
-	Game* game = new Game();
+	Runtime* game_runtime = new Runtime();
 
-	if (!game->Initialize()) {
-		std::cout << "Failed to initialize the game" << std::endl;
-		return 1;
-	}
-	
-	while (game->Run());
-
-	game->Shutdown();
+	//kick off the runtime
+	while (game_runtime->RunGameLoop());
 	return 0;
 }

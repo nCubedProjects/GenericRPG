@@ -147,6 +147,7 @@
     <ClCompile Include="GameMap.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Runtime.cpp" />
     <ClCompile Include="SpriteGameObject.cpp" />
     <ClCompile Include="BackgroundGameObject.cpp" />
     <ClCompile Include="TiledBackgroundGameObject.cpp" />
@@ -160,8 +161,9 @@
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameMap.h" />
     <ClInclude Include="GameObject.h" />
-    <ClInclude Include="GameProperties.h" />
+    <ClInclude Include="Properties.h" />
     <ClInclude Include="EventHandlers.h" />
+    <ClInclude Include="Runtime.h" />
     <ClInclude Include="SpriteGameObject.h" />
     <ClInclude Include="BackgroundGameObject.h" />
     <ClInclude Include="TiledBackgroundGameObject.h" />

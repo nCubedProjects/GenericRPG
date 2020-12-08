@@ -35,6 +35,15 @@
     <Filter Include="GameSystems\EventSystem\Source Files">
       <UniqueIdentifier>{28a96c0b-6796-4655-8151-3f6ef614f338}</UniqueIdentifier>
     </Filter>
+    <Filter Include="GameSystems\RuntimeSystem">
+      <UniqueIdentifier>{f910c3d4-436a-4bf7-82e3-ef48bf1017a4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameSystems\RuntimeSystem\Source Files">
+      <UniqueIdentifier>{30bcb99a-109f-46ff-8033-54fa09ca5a54}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameSystems\RuntimeSystem\Header Files">
+      <UniqueIdentifier>{85073b05-047e-44de-aec0-389ff481982b}</UniqueIdentifier>
+    </Filter>
     <Filter Include="GameSystems\TextureSystem">
       <UniqueIdentifier>{ef829ce7-d6af-4573-a59a-61e497fe1a8f}</UniqueIdentifier>
     </Filter>
@@ -80,6 +89,9 @@
       <Filter>GameSystems\TextureSystem\Source Files</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Runtime.cpp">
+      <Filter>GameSystems\RuntimeSystem\Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BackgroundGameObject.h">
@@ -118,7 +130,10 @@
     <ClInclude Include="GameMap.h">
       <Filter>GenericRPG\Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="GameProperties.h">
+    <ClInclude Include="Runtime.h">
+      <Filter>GameSystems\RuntimeSystem\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Properties.h">
       <Filter>GenericRPG\Header Files</Filter>
     </ClInclude>
   </ItemGroup>
