@@ -50,7 +50,7 @@ Runtime::Runtime()
 	event_manager = std::shared_ptr<EventManager>(new EventManager());
 
 	//initialize the game
-	game = new Game();
+	game = std::shared_ptr<Game>(new Game());
 }
 
 Runtime::~Runtime() {

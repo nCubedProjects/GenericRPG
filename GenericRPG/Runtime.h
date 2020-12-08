@@ -27,7 +27,7 @@ class Runtime {
 	private:
 		static std::shared_ptr<Runtime> game_runtime;
 		
-		Game* game;
+		std::shared_ptr<Game> game;
 
 		std::shared_ptr<SDL_Window> window;
 
