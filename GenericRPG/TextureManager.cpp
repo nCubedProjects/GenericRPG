@@ -60,7 +60,7 @@ bool TextureManager::AddTexture(const char * filename, const char * textureName)
 	if (!load) {
 		return false;
 	}
-	static SDL_Renderer* renderer = Runtime::Get()->Renderer().get();
+	static SDL_Renderer* renderer = Runtime::Get()->GetRenderer().get();
 
 	newTexture = SDL_CreateTextureFromSurface(renderer, load);
 

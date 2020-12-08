@@ -72,7 +72,7 @@ std::shared_ptr<Runtime> Runtime::Get() {
 	return nullptr;
 }
 
-std::shared_ptr<SDL_Renderer> Runtime::Renderer() {
+std::shared_ptr<SDL_Renderer> Runtime::GetRenderer() {
 	return renderer;
 }
 

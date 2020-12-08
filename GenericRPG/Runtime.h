@@ -16,7 +16,7 @@ class Runtime {
 
 		static std::shared_ptr<Runtime> Get();
 
-		std::shared_ptr<SDL_Renderer> Renderer();
+		std::shared_ptr<SDL_Renderer> GetRenderer();
 		std::shared_ptr<TextureManager> GetTextureManager();
 		std::shared_ptr<EventManager> GetEventManager();
 
