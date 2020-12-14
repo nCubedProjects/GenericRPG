@@ -11,6 +11,12 @@
 #include "ControllableGameObject.h"
 #include "GameMap.h"
 
+/**
+ * @brief The basic Game object containing game specific logic
+ * 
+ * @details The Game class will the the Game from the user's experience more or less
+ * It will utilize the Runtime for any generic systems required
+*/
 class Game{
 	public:
 		Game();
